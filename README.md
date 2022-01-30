@@ -85,7 +85,7 @@ $ H=56
 $ W=56
 $ python tools/deployment/pytorch2onnx.py \
     ${MODEL}.py \
-    ${MODEL}-b07a98a0.pth \
+    ${MODEL}-c0d7b482.pth \
     --shape 1 1 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
     --verify \
     --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
