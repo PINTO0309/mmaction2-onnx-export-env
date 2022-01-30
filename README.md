@@ -72,7 +72,8 @@ $ python tools/deployment/pytorch2onnx.py \
     --shape 1 1 17 32 ${H} ${W} \
     --verify \
     --output-file ${MODEL}_${H}x${W}.onnx \
-    --opset-version 11
+    --opset-version 11 \
+    --softmax
 
 $ python -m onnxsim ${MODEL}_${H}x${W}.onnx ${MODEL}_${H}x${W}.onnx
 ```
