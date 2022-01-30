@@ -64,8 +64,8 @@ $ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48
 $ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_gym_limb/slowonly_r50_u48_240e_gym_limb-c0d7b482.pth
 
 $ MODEL=slowonly_r50_u48_240e_gym_keypoint
-$ H=224
-$ W=224
+$ H=56
+$ W=56
 $ python tools/deployment/pytorch2onnx.py \
     ${MODEL}.py \
     ${MODEL}-b07a98a0.pth \
