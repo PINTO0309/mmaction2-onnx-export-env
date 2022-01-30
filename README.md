@@ -65,19 +65,19 @@ $ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48
 
 $ MODEL=slowonly_r50_u48_240e_gym_keypoint
 $ KEYPOINTS=17
-$ T=32
+$ FRAMES=32
 $ H=56
 $ W=56
 $ python tools/deployment/pytorch2onnx.py \
     ${MODEL}.py \
     ${MODEL}-b07a98a0.pth \
-    --shape 1 1 ${KEYPOINTS} ${T} ${H} ${W} \
+    --shape 1 1 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
     --verify \
-    --output-file ${MODEL}_${KEYPOINTS}x${T}x${H}x${W}.onnx \
+    --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
     --opset-version 11 \
     --softmax
 
-$ python -m onnxsim ${MODEL}_${H}x${W}.onnx ${MODEL}_${H}x${W}.onnx
+$ python -m onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 ```
 
 ## 4. Model Type - ModelZoo OVERVIEW
