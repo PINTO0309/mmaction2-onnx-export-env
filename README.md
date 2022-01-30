@@ -76,3 +76,11 @@ $ python tools/deployment/pytorch2onnx.py \
 
 $ python -m onnxsim ${MODEL}_${H}x${W}.onnx ${MODEL}_${H}x${W}.onnx
 ```
+
+## 4. Model Type - ModelZoo OVERVIEW
+1. Spatio Temporal Action Detection Models
+2. Action Localization Models
+3. Action Recognition Models
+4. Skeleton-based Action Recognition Models
+
+https://mmaction2.readthedocs.io/en/latest/modelzoo.html
