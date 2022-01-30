@@ -64,14 +64,16 @@ $ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48
 $ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_gym_limb/slowonly_r50_u48_240e_gym_limb-c0d7b482.pth
 
 $ MODEL=slowonly_r50_u48_240e_gym_keypoint
+$ KEYPOINTS=17
+$ T=32
 $ H=56
 $ W=56
 $ python tools/deployment/pytorch2onnx.py \
     ${MODEL}.py \
     ${MODEL}-b07a98a0.pth \
-    --shape 1 1 17 32 ${H} ${W} \
+    --shape 1 1 ${KEYPOINTS} ${T} ${H} ${W} \
     --verify \
-    --output-file ${MODEL}_${H}x${W}.onnx \
+    --output-file ${MODEL}_${KEYPOINTS}x${T}x${H}x${W}.onnx \
     --opset-version 11 \
     --softmax
 
