@@ -84,3 +84,7 @@ $ python -m onnxsim ${MODEL}_${H}x${W}.onnx ${MODEL}_${H}x${W}.onnx
 4. Skeleton-based Action Recognition Models
 
 https://mmaction2.readthedocs.io/en/latest/modelzoo.html
+
+## 5. MMAction2
+
+https://github.com/open-mmlab/mmaction2
