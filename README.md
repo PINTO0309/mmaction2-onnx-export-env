@@ -20,6 +20,9 @@ $ mkdir -p data
 $ mv docker/Dockerfile docker/Dockerfile_org
 $ cp ../Dockerfile docker/Dockerfile
 $ docker build -t mmaction2onnxexpenv -f docker/Dockerfile .
+$ docker run --rm -it --gpus all \
+    -v `pwd`:/home/user/workdir \
+    mmaction2onnxexpenv:latest
 ```
 
 ## 2. ONNX export syntax
