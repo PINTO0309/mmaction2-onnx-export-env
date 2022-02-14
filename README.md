@@ -20,7 +20,7 @@ $ mkdir -p data
 $ mv docker/Dockerfile docker/Dockerfile_org
 $ cp ../Dockerfile docker/Dockerfile
 $ docker build -t mmaction2onnxexpenv -f docker/Dockerfile .
-$ docker run --rm -it --gpus all \
+$ docker run --rm -it --gpus all --shm-size 10gb \
     -v `pwd`:/home/user/workdir \
     mmaction2onnxexpenv:latest
 ```
