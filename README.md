@@ -7,7 +7,7 @@ $ docker pull ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 $ git clone https://github.com/open-mmlab/mmaction2.git && cd mmaction2
 $ git checkout 7c94243542985db813bb9021f97c95b59d136e52
 $ mkdir -p data
-$ docker run --rm -it --gpus all \
+$ docker run --rm -it --gpus all --shm-size 10gb \
     -v `pwd`:/home/user/workdir \
     ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 ```
