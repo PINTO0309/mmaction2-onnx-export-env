@@ -59,10 +59,10 @@ $ python tools/deployment/pytorch2onnx.py \
 ## config
 wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_keypoint.py
 wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_gym_limb.py
-wget https://github.com/open-mmlab/mmaction2/tree/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_keypoint.py
-wget https://github.com/open-mmlab/mmaction2/tree/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_limb.py
-wget https://github.com/open-mmlab/mmaction2/tree/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint.py
-wget https://github.com/open-mmlab/mmaction2/tree/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb.py
+wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_keypoint.py
+wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu60_xsub_limb.py
+wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint.py
+wget https://github.com/open-mmlab/mmaction2/raw/master/configs/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb.py
 
 ## checkpoint
 wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_gym_keypoint/slowonly_r50_u48_240e_gym_keypoint-b07a98a0.pth -O slowonly_r50_u48_240e_gym_keypoint.pth
