@@ -78,13 +78,13 @@ $ FRAMES=30
 $ H=64
 $ W=64
 $ python tools/deployment/pytorch2onnx.py \
-    ${MODEL}.py \
-    ${MODEL}-b07a98a0.pth \
-    --shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
-    --verify \
-    --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
-    --opset-version 11 \
-    --softmax
+${MODEL}.py \
+${MODEL}-b07a98a0.pth \
+--shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax
 $ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
 $ MODEL=slowonly_r50_u48_240e_gym_limb
@@ -93,13 +93,13 @@ $ FRAMES=30
 $ H=64
 $ W=64
 $ python tools/deployment/pytorch2onnx.py \
-    ${MODEL}.py \
-    ${MODEL}-c0d7b482.pth \
-    --shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
-    --verify \
-    --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
-    --opset-version 11 \
-    --softmax
+${MODEL}.py \
+${MODEL}-c0d7b482.pth \
+--shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax
 $ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 ```
 
