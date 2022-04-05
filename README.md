@@ -79,7 +79,7 @@ $ H=64
 $ W=64
 $ python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
-${MODEL}-b07a98a0.pth \
+${MODEL}.pth \
 --shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
 --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
@@ -94,7 +94,7 @@ $ H=64
 $ W=64
 $ python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
-${MODEL}-c0d7b482.pth \
+${MODEL}.pth \
 --shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
 --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
