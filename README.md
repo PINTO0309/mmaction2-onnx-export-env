@@ -5,7 +5,7 @@
 ```bash
 $ docker pull ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 $ git clone https://github.com/open-mmlab/mmaction2.git && cd mmaction2
-###$ git checkout 7c94243542985db813bb9021f97c95b59d136e52
+$ git checkout 6ea00d23d66fd491bbf19317b4677bf6f396d26f
 $ mkdir -p data
 $ docker run --rm -it --gpus all --shm-size 10gb \
 -v `pwd`:/home/user/workdir \
@@ -15,7 +15,7 @@ ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 ```bash
 $ git clone https://github.com/PINTO0309/mmaction2-onnx-export-env.git && cd mmaction2-onnx-export-env
 $ git clone https://github.com/open-mmlab/mmaction2.git && cd mmaction2
-###$ git checkout 7c94243542985db813bb9021f97c95b59d136e52
+$ git checkout 6ea00d23d66fd491bbf19317b4677bf6f396d26f
 $ mkdir -p data
 $ mv docker/Dockerfile docker/Dockerfile_org
 $ cp ../Dockerfile docker/Dockerfile
@@ -72,35 +72,109 @@ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_2
 wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint/slowonly_r50_u48_240e_ntu120_xsub_keypoint-6736b03f.pth -O slowonly_r50_u48_240e_ntu120_xsub_keypoint.pth
 wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb/slowonly_r50_u48_240e_ntu120_xsub_limb-803c2317.pth -O slowonly_r50_u48_240e_ntu120_xsub_limb.pth
 
-$ MODEL=slowonly_r50_u48_240e_gym_keypoint
-$ KEYPOINTS=17
-$ FRAMES=30
-$ H=64
-$ W=64
-$ python tools/deployment/pytorch2onnx.py \
+MODEL=slowonly_r50_u48_240e_gym_keypoint \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
---shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_1x2x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
---softmax
-$ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
-$ MODEL=slowonly_r50_u48_240e_gym_limb
-$ KEYPOINTS=17
-$ FRAMES=30
-$ H=64
-$ W=64
-$ python tools/deployment/pytorch2onnx.py \
+MODEL=slowonly_r50_u48_240e_gym_limb \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
---shape 1 2 ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
 --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
---softmax
-$ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+
+
+MODEL=slowonly_r50_u48_240e_ntu60_xsub_keypoint \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
+${MODEL}.py \
+${MODEL}.pth \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+
+MODEL=slowonly_r50_u48_240e_ntu60_xsub_limb \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
+${MODEL}.py \
+${MODEL}.pth \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+
+
+MODEL=slowonly_r50_u48_240e_ntu120_xsub_keypoint \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
+${MODEL}.py \
+${MODEL}.pth \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+
+MODEL=slowonly_r50_u48_240e_ntu120_xsub_limb \
+&& KEYPOINTS=17 \
+&& FRAMES=30 \
+&& H=64 \
+&& W=64 \
+&& BATCH=1 \
+&& CLIP=2 \
+&& python tools/deployment/pytorch2onnx.py \
+${MODEL}.py \
+${MODEL}.pth \
+--shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
+--verify \
+--output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--opset-version 11 \
+--softmax \
+&& onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 ```
 
 ## 4. Model Type - ModelZoo OVERVIEW
