@@ -72,13 +72,14 @@ wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_2
 wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_keypoint/slowonly_r50_u48_240e_ntu120_xsub_keypoint-6736b03f.pth -O slowonly_r50_u48_240e_ntu120_xsub_keypoint.pth
 wget https://download.openmmlab.com/mmaction/skeleton/posec3d/slowonly_r50_u48_240e_ntu120_xsub_limb/slowonly_r50_u48_240e_ntu120_xsub_limb-803c2317.pth -O slowonly_r50_u48_240e_ntu120_xsub_limb.pth
 
-MODEL=slowonly_r50_u48_240e_gym_keypoint \
-&& KEYPOINTS=17 \
+KEYPOINTS=17 \
 && FRAMES=30 \
 && H=64 \
 && W=64 \
 && BATCH=1 \
-&& CLIP=2 \
+&& CLIP=2
+
+MODEL=slowonly_r50_u48_240e_gym_keypoint \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
@@ -90,12 +91,6 @@ ${MODEL}.pth \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
 MODEL=slowonly_r50_u48_240e_gym_limb \
-&& KEYPOINTS=17 \
-&& FRAMES=30 \
-&& H=64 \
-&& W=64 \
-&& BATCH=1 \
-&& CLIP=2 \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
@@ -108,12 +103,6 @@ ${MODEL}.pth \
 
 
 MODEL=slowonly_r50_u48_240e_ntu60_xsub_keypoint \
-&& KEYPOINTS=17 \
-&& FRAMES=30 \
-&& H=64 \
-&& W=64 \
-&& BATCH=1 \
-&& CLIP=2 \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
@@ -125,12 +114,6 @@ ${MODEL}.pth \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
 MODEL=slowonly_r50_u48_240e_ntu60_xsub_limb \
-&& KEYPOINTS=17 \
-&& FRAMES=30 \
-&& H=64 \
-&& W=64 \
-&& BATCH=1 \
-&& CLIP=2 \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
@@ -143,12 +126,6 @@ ${MODEL}.pth \
 
 
 MODEL=slowonly_r50_u48_240e_ntu120_xsub_keypoint \
-&& KEYPOINTS=17 \
-&& FRAMES=30 \
-&& H=64 \
-&& W=64 \
-&& BATCH=1 \
-&& CLIP=2 \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
@@ -160,12 +137,6 @@ ${MODEL}.pth \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
 MODEL=slowonly_r50_u48_240e_ntu120_xsub_limb \
-&& KEYPOINTS=17 \
-&& FRAMES=30 \
-&& H=64 \
-&& W=64 \
-&& BATCH=1 \
-&& CLIP=2 \
 && python tools/deployment/pytorch2onnx.py \
 ${MODEL}.py \
 ${MODEL}.pth \
