@@ -84,7 +84,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_1x2x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
@@ -101,7 +101,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
@@ -119,7 +119,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
@@ -136,7 +136,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
@@ -154,7 +154,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
@@ -171,7 +171,7 @@ ${MODEL}.py \
 ${MODEL}.pth \
 --shape ${BATCH} ${CLIP} ${KEYPOINTS} ${FRAMES} ${H} ${W} \
 --verify \
---output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
+--output-file ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
 --opset-version 11 \
 --softmax \
 && onnxsim ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${BATCH}x${CLIP}x${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
