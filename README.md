@@ -8,8 +8,8 @@ $ git clone https://github.com/open-mmlab/mmaction2.git && cd mmaction2
 $ git checkout 7c94243542985db813bb9021f97c95b59d136e52
 $ mkdir -p data
 $ docker run --rm -it --gpus all --shm-size 10gb \
-    -v `pwd`:/home/user/workdir \
-    ghcr.io/pinto0309/mmaction2onnxexpenv:latest
+-v `pwd`:/home/user/workdir \
+ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 ```
 ### 1-2. Docker Build
 ```bash
@@ -21,8 +21,8 @@ $ mv docker/Dockerfile docker/Dockerfile_org
 $ cp ../Dockerfile docker/Dockerfile
 $ docker build -t mmaction2onnxexpenv -f docker/Dockerfile .
 $ docker run --rm -it --gpus all --shm-size 10gb \
-    -v `pwd`:/home/user/workdir \
-    mmaction2onnxexpenv:latest
+-v `pwd`:/home/user/workdir \
+ghcr.io/pinto0309/mmaction2onnxexpenv:latest
 ```
 
 ## 2. ONNX export syntax
@@ -85,7 +85,7 @@ $ python tools/deployment/pytorch2onnx.py \
     --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
     --opset-version 11 \
     --softmax
-$ python -m onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+$ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 
 $ MODEL=slowonly_r50_u48_240e_gym_limb
 $ KEYPOINTS=17
@@ -100,7 +100,7 @@ $ python tools/deployment/pytorch2onnx.py \
     --output-file ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx \
     --opset-version 11 \
     --softmax
-$ python -m onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
+$ onnxsim ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx ${MODEL}_${KEYPOINTS}x${FRAMES}x${H}x${W}.onnx
 ```
 
 ## 4. Model Type - ModelZoo OVERVIEW
