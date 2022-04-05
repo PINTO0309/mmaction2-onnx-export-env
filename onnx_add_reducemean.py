@@ -22,7 +22,7 @@ dummy_reducemean = gs.Node(
     name="head_reducemean",
     attrs=OrderedDict(
         [
-            ('axes', 0),
+            ('axes', [0]),
             ('keepdims', 1),
         ]
     ),
